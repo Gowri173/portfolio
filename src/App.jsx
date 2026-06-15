@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Experience from './components/Experience';
+import Education from './components/Education';
 import Projects from './components/Projects';
 import AISystems from './components/AISystems';
 import Skills from './components/Skills';
@@ -27,6 +28,7 @@ function App() {
           <div className="space-y-12">
             <About />
             <Experience />
+            <Education />
             <Projects />
             <AISystems />
             <Skills />

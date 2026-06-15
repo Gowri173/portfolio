@@ -1,18 +1,26 @@
 import React from 'react';
-import { ArrowUpRight, Code, Sparkles, Terminal, Activity } from 'lucide-react';
+import { ArrowUpRight, Sparkles, Terminal, Activity, FileText, CheckCircle } from 'lucide-react';
 
 const Projects = () => {
   const projects = [
     {
-      title: "Behavioral Authentication & Identity Platform",
-      category: "Infrastructure Security",
-      desc: "An enterprise-grade authentication system that analyzes keyboard dynamics, cursor micro-actions, and authentication request vectors to block malicious automated session-hijackings in real-time.",
-      stats: [
-        { label: "Precision Rate", value: "99.8%" },
-        { label: "Latency Overheard", value: "<14ms" },
-        { label: "Active Nodes", value: "12K+" }
+      title: "Behavioral Authentication System for Web App Security",
+      category: "Security · ML",
+      problem: "Traditional passwords are vulnerable. A malicious actor who steals credentials gains full access. Static authentication cannot detect the difference between you and an impostor.",
+      solution: "A passive, continuous authentication layer using behavioral biometrics — analyzing unique keystroke dynamics and mouse movement patterns to build a living fingerprint of the legitimate user.",
+      features: [
+        "Keystroke dynamics + mouse movement analysis for user fingerprinting",
+        "scikit-learn anomaly detection models for real-time threat scoring",
+        "Passive authentication — zero friction for legitimate users",
+        "Flask API backend with continuous session monitoring"
       ],
-      github: "https://github.com/Gowri173",
+      stats: [
+        { label: "User Friction", value: "Zero" },
+        { label: "Anomaly Detection", value: "ML" },
+        { label: "Monitoring", value: "Real-time" }
+      ],
+      tags: ["Python", "Flask", "scikit-learn", "JavaScript", "SQLite", "NumPy"],
+      github: "https://github.com/gowriram",
       demo: "#",
       // Inline architecture schematic styled for Red/Orange Fire Theme
       diagram: (
@@ -51,15 +59,23 @@ const Projects = () => {
       )
     },
     {
-      title: "MedRAGnosis Cognitive Medical Assistant",
-      category: "Artificial Intelligence",
-      desc: "A medical question-answering assistant integrating Retrieval-Augmented Generation (RAG) with local clinician databases. Incorporates multi-stage validation filters to eliminate LLM hallucinations.",
-      stats: [
-        { label: "Accuracy Index", value: "94.2%" },
-        { label: "Hallucination Risk", value: "<0.8%" },
-        { label: "Embedding DB Size", value: "4.2M" }
+      title: "AI-Powered Medical Assistant Chatbot (RAG-Based)",
+      category: "AI · RAG · Healthcare",
+      problem: "Healthcare information online is fragmented and unreliable. Generic LLMs hallucinate medical details. Patients and professionals need accurate, source-grounded answers instantly.",
+      solution: "A Retrieval-Augmented Generation system that grounds every response in verified medical documentation — using vector search, embeddings, and LLMs to deliver precise, cited answers.",
+      features: [
+        "Full RAG pipeline with document processing and vector embeddings",
+        "Semantic search over medical knowledge bases via vector similarity",
+        "Source-grounded responses with LLM synthesis",
+        "Context-aware Q&A that cites documentation for every answer"
       ],
-      github: "https://github.com/Gowri173",
+      stats: [
+        { label: "Architecture", value: "RAG" },
+        { label: "Powered", value: "LLM" },
+        { label: "Grounded", value: "Source" }
+      ],
+      tags: ["Python", "LangChain", "LLMs", "Vector DB", "RAG", "Embeddings"],
+      github: "https://github.com/gowriram",
       demo: "#",
       // RAG Routing schematic styled for Red/Orange Fire Theme
       diagram: (
@@ -95,100 +111,164 @@ const Projects = () => {
       {/* Header */}
       <div className="mb-20 text-center">
         <span className="text-xs font-bold uppercase tracking-[0.25em] text-accent-fire font-sans block mb-2">
-          System Portfolio
+          Product Showcases
         </span>
         <h2 className="text-3xl md:text-5xl font-black text-[#4a1c1c] tracking-tight font-sans">
-          Product <span className="text-gradient-fire">Launches</span>
+          Featured <span className="text-gradient-fire">Work</span>
         </h2>
+        <p className="text-[#6b2d2d]/80 text-xs font-semibold uppercase tracking-wider font-sans mt-2">
+          Each project engineered to solve a real problem.
+        </p>
         <div className="h-[2px] w-20 bg-gradient-to-r from-accent-fire to-accent-orange mt-4 mx-auto" />
       </div>
 
       {/* Projects Stack */}
-      <div className="space-y-20">
+      <div className="space-y-28">
         {projects.map((proj, idx) => (
           <div 
             key={idx}
-            className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+            className="glass-panel border-orange-100 p-8 md:p-10 rounded-[36px] shadow-xl hover:border-accent-fire/30 transition-all duration-500 relative flex flex-col gap-8 animate-fadeIn"
           >
-            
-            {/* Project Specs - Left (or alternative layout) */}
-            <div className={`lg:col-span-5 space-y-6 ${idx % 2 === 1 ? 'lg:order-2' : ''}`}>
-              
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-100">
-                <Sparkles className="w-3.5 h-3.5 text-accent-orange" />
-                <span className="text-[10px] font-bold uppercase tracking-wider text-[#6b2d2d] font-sans">
-                  {proj.category}
-                </span>
-              </div>
+            {/* Ambient inner glow */}
+            <div className="absolute -top-12 -left-12 w-48 h-48 bg-accent-fire/5 rounded-full blur-3xl pointer-events-none" />
 
-              <h3 className="text-2xl md:text-3xl font-extrabold text-[#4a1c1c] leading-tight font-sans">
-                {proj.title}
-              </h3>
-
-              <p className="text-xs md:text-sm text-[#6b2d2d] font-light leading-relaxed font-sans">
-                {proj.desc}
-              </p>
-
-              {/* Specs Metric list */}
-              <div className="grid grid-cols-3 gap-4 border-y border-orange-100 py-4 my-2 select-none">
-                {proj.stats.map((stat, statIdx) => (
-                  <div key={statIdx}>
-                    <div className="text-xl md:text-2xl font-black text-[#4a1c1c] font-sans">
-                      {stat.value}
-                    </div>
-                    <div className="text-[9px] font-bold text-[#6b2d2d]/80 uppercase tracking-widest mt-0.5 font-sans">
-                      {stat.label}
-                    </div>
-                  </div>
-                ))}
+            {/* Top row: Header, category badge and actions */}
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-orange-100/60 pb-6">
+              <div className="space-y-2">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-100">
+                  <Sparkles className="w-3.5 h-3.5 text-accent-orange" />
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#6b2d2d] font-sans">
+                    {proj.category}
+                  </span>
+                </div>
+                <h3 className="text-xl md:text-2xl font-extrabold text-[#4a1c1c] font-sans leading-tight">
+                  {proj.title}
+                </h3>
               </div>
 
               {/* Action Buttons */}
-              <div className="flex items-center gap-3">
+              <div className="flex flex-wrap items-center gap-2 shrink-0">
                 <a
                   href={proj.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 py-2.5 rounded-full bg-orange-50 border border-orange-100 text-xs font-semibold text-[#4a1c1c] hover:text-accent-fire hover:border-accent-fire/40 transition-colors flex items-center gap-1.5"
+                  className="px-4 py-2 rounded-xl bg-orange-50 border border-orange-100 text-[10px] font-bold text-[#4a1c1c] uppercase tracking-wider hover:text-accent-fire hover:border-accent-fire/40 transition-colors flex items-center gap-1.5"
                 >
-                  <svg
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="w-4 h-4 text-[#6b2d2d]"
-                  >
-                    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                    <path d="M9 18c-4.51 2-5-2-7-2" />
-                  </svg>
+                  <Terminal className="w-3.5 h-3.5" />
                   Code Telemetry
                 </a>
                 <a
                   href={proj.demo}
-                  className="px-5 py-2.5 rounded-full bg-gradient-to-r from-accent-fire/10 to-accent-orange/10 border border-accent-fire/30 text-xs font-semibold text-[#4a1c1c] hover:shadow-[0_0_15px_rgba(255,69,0,0.15)] hover:scale-[1.02] transition-all flex items-center gap-1.5"
+                  className="px-4 py-2 rounded-xl bg-gradient-to-r from-accent-fire/10 to-accent-orange/10 border border-accent-fire/30 text-[10px] font-bold text-[#4a1c1c] uppercase tracking-wider hover:shadow-[0_0_15px_rgba(255,69,0,0.15)] hover:scale-[1.01] transition-all flex items-center gap-1.5"
                 >
-                  <Activity className="w-4 h-4 text-accent-orange" />
+                  <Activity className="w-3.5 h-3.5 text-accent-orange" />
                   Live System
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[#6b2d2d]" />
+                  <ArrowUpRight className="w-3 h-3 text-[#6b2d2d]" />
                 </a>
               </div>
- 
             </div>
- 
-            {/* Architecture diagram - Right */}
-            <div className="lg:col-span-7 p-6 rounded-3xl glass-panel border-orange-100 hover:border-accent-fire/20 transition-colors shadow-xl relative">
-              {/* Glow spots */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-accent-fire/5 rounded-full blur-[80px] pointer-events-none" />
-              
-              <div className="w-full h-auto aspect-[16/9] flex items-center justify-center">
-                {proj.diagram}
+
+            {/* Grid for content and diagram */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              {/* Problem/Solution specs - Left */}
+              <div className="lg:col-span-7 space-y-6">
+                
+                {/* Problem Section */}
+                <div className="space-y-2">
+                  <span className="text-[9px] font-extrabold uppercase tracking-widest text-[#6b2d2d]/60 font-mono block">
+                    [01] Problem Statement
+                  </span>
+                  <p className="text-xs md:text-sm text-[#6b2d2d] font-normal leading-relaxed font-sans">
+                    {proj.problem}
+                  </p>
+                </div>
+
+                {/* Solution Section */}
+                <div className="space-y-2">
+                  <span className="text-[9px] font-extrabold uppercase tracking-widest text-accent-fire font-mono block">
+                    [02] Engineering Solution
+                  </span>
+                  <p className="text-xs md:text-sm text-[#4a1c1c] font-medium leading-relaxed font-sans bg-orange-50/40 p-4 rounded-2xl border border-orange-100/50 shadow-inner">
+                    {proj.solution}
+                  </p>
+                </div>
+
+                {/* Feature Highlights */}
+                <div className="space-y-2">
+                  <span className="text-[9px] font-extrabold uppercase tracking-widest text-accent-orange font-mono block">
+                    [03] Key Telemetry Features
+                  </span>
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-[#6b2d2d] font-sans">
+                    {proj.features.map((feature, fIdx) => (
+                      <li key={fIdx} className="flex items-start gap-1.5 leading-relaxed bg-white border border-orange-50 p-2.5 rounded-xl">
+                        <span className="text-accent-fire select-none mt-0.5">•</span>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Technology Badges */}
+                <div className="flex flex-wrap gap-1.5 pt-2">
+                  {proj.tags.map((tag, tIdx) => (
+                    <span 
+                      key={tIdx} 
+                      className="px-2.5 py-1 rounded-lg bg-orange-50/40 border border-orange-100/60 font-mono text-[9px] text-[#6b2d2d]/90"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+              </div>
+
+              {/* Architecture Diagram and Metrics - Right */}
+              <div className="lg:col-span-5 space-y-6">
+                
+                {/* SVG Schematic Box */}
+                <div className="p-4 rounded-2xl bg-white border border-orange-100 hover:border-accent-fire/20 transition-colors shadow-sm relative">
+                  <div className="absolute top-3 right-3 text-[8px] font-mono text-[#6b2d2d]/50">SCHEMATIC_NODE // V1.0</div>
+                  <div className="w-full h-auto aspect-[16/10] flex items-center justify-center pt-2">
+                    {proj.diagram}
+                  </div>
+                </div>
+
+                {/* Stats Metric list */}
+                <div className="grid grid-cols-3 gap-3">
+                  {proj.stats.map((stat, statIdx) => (
+                    <div key={statIdx} className="p-3 rounded-2xl bg-orange-50/40 border border-orange-100/40 text-center shadow-inner select-none">
+                      <div className="text-base md:text-lg font-black text-[#4a1c1c] font-sans">
+                        {proj.category === "Security · ML" && stat.label === "User Friction" ? (
+                          <span className="text-emerald-600">{stat.value}</span>
+                        ) : (
+                          stat.value
+                        )}
+                      </div>
+                      <div className="text-[8px] font-bold text-[#6b2d2d]/75 uppercase tracking-widest mt-0.5 font-sans leading-none">
+                        {stat.label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
               </div>
             </div>
 
           </div>
         ))}
+      </div>
+
+      {/* Footer link to GitHub */}
+      <div className="mt-20 text-center select-none">
+        <a 
+          href="https://github.com/gowriram" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-orange-50 hover:bg-orange-100 border border-orange-100 hover:border-accent-orange/30 text-xs font-bold text-[#4a1c1c] uppercase tracking-wider transition-all"
+        >
+          View All on GitHub
+          <ArrowUpRight className="w-4 h-4 text-accent-fire animate-pulse" />
+        </a>
       </div>
     </section>
   );

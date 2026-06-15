@@ -1,23 +1,53 @@
 import React from 'react';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, Cpu, Code, Layers, Database, Globe, Command } from 'lucide-react';
 
 const Skills = () => {
   const skillCategories = [
     {
-      name: "Backend & Cloud",
-      skills: ["Java", "Python", "C#", "SQL", "Spring Boot", ".NET Core", "AWS (Lambda, SQS, Cognito)", "Azure (AD, Pipelines)", "Docker"],
+      name: "AI & ML",
+      icon: <Cpu className="w-4 h-4 text-accent-fire" />,
+      skills: ["Python", "TensorFlow", "scikit-learn", "LangChain", "NLTK", "RAG", "AI Agents", "Embeddings"],
       color: "border-accent-fire text-accent-fire bg-accent-fire/5"
     },
     {
       name: "Frontend Stack",
-      skills: ["React", "JavaScript (ES6+)", "HTML5 / CSS3", "Tailwind CSS", "Redux Toolkit", "GSAP", "Framer Motion", "Vite"],
+      icon: <Globe className="w-4 h-4 text-accent-orange" />,
+      skills: ["JavaScript", "React.js", "HTML5", "CSS3", "Tailwind CSS"],
       color: "border-accent-orange text-accent-orange bg-accent-orange/5"
     },
     {
-      name: "AI & Data Science",
-      skills: ["RAG Systems", "Vector Databases (Pinecone, PGVector)", "LangChain", "LlamaIndex", "Multi-Agent Frameworks", "PyTorch", "Pandas"],
-      color: "border-accent-gold text-accent-gold bg-accent-gold/5"
+      name: "Backend Stack",
+      icon: <Code className="w-4 h-4 text-accent-fire" />,
+      skills: ["Python", "Flask", "Java", "REST APIs", "SQL"],
+      color: "border-accent-fire text-accent-fire bg-accent-fire/5"
+    },
+    {
+      name: "Database Systems",
+      icon: <Database className="w-4 h-4 text-accent-orange" />,
+      skills: ["MySQL", "MongoDB", "SQLite", "Vector DB"],
+      color: "border-accent-orange text-accent-orange bg-accent-orange/5"
+    },
+    {
+      name: "Cloud & Tools",
+      icon: <Layers className="w-4 h-4 text-accent-fire" />,
+      skills: ["AWS", "Azure", "Git", "Google ADK", "MongoDB Toolkit", "Jupyter", "VS Code"],
+      color: "border-accent-fire text-accent-fire bg-accent-fire/5"
+    },
+    {
+      name: "Concepts",
+      icon: <Command className="w-4 h-4 text-accent-orange" />,
+      skills: ["Machine Learning", "Data Engineering", "Cybersecurity", "NLP", "Cloud Infra", "Automation"],
+      color: "border-accent-orange text-accent-orange bg-accent-orange/5"
     }
+  ];
+
+  const proficiencies = [
+    { name: "Python & AI/ML", value: 92 },
+    { name: "LangChain / RAG Systems", value: 83 },
+    { name: "AWS + Azure Cloud", value: 78 },
+    { name: "React.js / JavaScript", value: 80 },
+    { name: "Data Engineering", value: 76 },
+    { name: "SQL / Databases", value: 84 }
   ];
 
   return (
@@ -26,77 +56,80 @@ const Skills = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-accent-orange/5 rounded-full blur-[140px] pointer-events-none -z-10" />
 
       {/* Header */}
-      <div className="mb-16 text-center">
+      <div className="mb-16 text-center animate-fadeIn">
         <span className="text-xs font-bold uppercase tracking-[0.25em] text-accent-fire font-sans block mb-2">
-          Competency Matrix
+          Capabilities
         </span>
         <h2 className="text-3xl md:text-5xl font-black text-[#4a1c1c] tracking-tight font-sans">
-          Capabilities <span className="text-gradient-fire">Galaxy</span>
+          Technical <span className="text-gradient-fire">Arsenal</span>
         </h2>
         <div className="h-[2px] w-20 bg-gradient-to-r from-accent-fire to-accent-orange mt-4 mx-auto" />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        
-        {/* Left: Traditional skill grids */}
-        <div className="lg:col-span-7 space-y-6">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+
+        {/* Left: Skill Grids Categories (8 Grid Columns) */}
+        <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-4">
           {skillCategories.map((cat, idx) => (
-            <div 
+            <div
               key={idx}
-              className="glass-panel border-orange-100 p-6 rounded-2xl hover:border-accent-fire/20 transition-all duration-300 shadow-xl"
+              className="glass-panel border-orange-100 p-5 rounded-2xl hover:border-accent-fire/20 transition-all duration-300 shadow-lg flex flex-col justify-between"
             >
-              <h3 className="text-sm font-bold text-[#4a1c1c] uppercase tracking-wider mb-4 font-sans flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent-fire" />
-                {cat.name}
-              </h3>
-              
-              <div className="flex flex-wrap gap-2.5">
-                {cat.skills.map((skill, skillIdx) => (
-                  <span
-                    key={skillIdx}
-                    className={`px-3.5 py-1.5 rounded-xl border text-xs font-mono font-medium hover:scale-[1.03] transition-all select-none ${cat.color}`}
-                  >
-                    {skill}
-                  </span>
-                ))}
+              <div>
+                <h3 className="text-xs font-bold text-[#4a1c1c] uppercase tracking-wider mb-3.5 font-sans flex items-center gap-2">
+                  <div className="p-1.5 rounded-lg bg-orange-50/50 border border-orange-100">
+                    {cat.icon}
+                  </div>
+                  {cat.name}
+                </h3>
+
+                <div className="flex flex-wrap gap-1.5">
+                  {cat.skills.map((skill, skillIdx) => (
+                    <span
+                      key={skillIdx}
+                      className={`px-2.5 py-1 rounded-lg border text-[10px] font-mono hover:scale-[1.01] transition-all select-none ${cat.color}`}
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Right: Orbital Galaxy Visualization */}
-        <div className="lg:col-span-5 h-[400px] relative flex items-center justify-center select-none">
-          
-          {/* Orbital rings (styled by index.css dashed rule) */}
-          <div className="orbit-ring w-[350px] h-[350px] animate-spin [animation-duration:100s]" />
-          <div className="orbit-ring w-[240px] h-[240px] animate-spin [animation-duration:60s] [animation-direction:reverse]" />
-          <div className="orbit-ring w-[140px] h-[140px] animate-spin [animation-duration:30s]" />
+        {/* Right: Core Proficiency Progress Bars (5 Grid Columns) */}
+        <div className="lg:col-span-5 glass-panel border-orange-100 p-6 md:p-8 rounded-3xl shadow-lg flex flex-col justify-between">
+          <div className="space-y-6">
+            <div className="border-b border-orange-50 pb-4 mb-2">
+              <h3 className="text-sm font-bold text-[#4a1c1c] uppercase tracking-wider font-sans flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-accent-orange animate-pulse" />
+                Core Proficiency
+              </h3>
+              <p className="text-[10px] text-[#6b2d2d]/65 font-mono mt-1">Ingested metric logs</p>
+            </div>
 
-          {/* Central Engine Core */}
-          <div className="absolute w-16 h-16 rounded-full bg-white border-2 border-accent-fire flex items-center justify-center shadow-[0_0_40px_rgba(255,69,0,0.15)] z-10">
-            <Sparkles className="w-5 h-5 text-accent-fire animate-pulse" />
+            <div className="space-y-4">
+              {proficiencies.map((prof, idx) => (
+                <div key={idx} className="space-y-1.5">
+                  <div className="flex justify-between text-xs font-semibold text-[#4a1c1c] font-sans">
+                    <span>{prof.name}</span>
+                    <span className="font-mono text-accent-fire font-bold">{prof.value}%</span>
+                  </div>
+
+                  {/* Custom Progress bar container */}
+                  <div className="w-full h-2 rounded-full bg-orange-50 border border-orange-100/50 overflow-hidden relative p-[1px]">
+                    <div
+                      className="h-full rounded-full bg-gradient-to-r from-accent-fire to-accent-orange shadow-[0_0_8px_rgba(255,69,0,0.2)] transition-all duration-1000"
+                      style={{ width: `${prof.value}%` }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* Orbit Nodes - Outer ring */}
-          <div className="absolute top-10 left-10 p-2.5 rounded-xl bg-white border border-accent-fire text-[10px] font-mono text-[#4a1c1c] animate-orbit-slow shadow-[0_0_15px_rgba(255,69,0,0.08)]">
-            AWS Cloud
-          </div>
-          <div className="absolute bottom-12 right-6 p-2.5 rounded-xl bg-white border border-accent-orange text-[10px] font-mono text-[#4a1c1c] animate-orbit-slow shadow-[0_0_15px_rgba(255,140,0,0.08)]">
-            Multi-Agent
-          </div>
 
-          {/* Orbit Nodes - Middle ring */}
-          <div className="absolute top-1/4 right-12 p-2.5 rounded-xl bg-white border border-accent-gold text-[10px] font-mono text-[#4a1c1c] animate-orbit-medium shadow-[0_0_15px_rgba(255,209,102,0.08)]">
-            React / GSAP
-          </div>
-          <div className="absolute bottom-1/4 left-10 p-2.5 rounded-xl bg-white border border-accent-fire text-[10px] font-mono text-[#4a1c1c] animate-orbit-medium shadow-[0_0_15px_rgba(255,69,0,0.08)]">
-            VectorDB
-          </div>
-
-          {/* Orbit Nodes - Inner ring */}
-          <div className="absolute top-12 right-1/3 p-2 rounded-xl bg-white border border-accent-orange text-[9px] font-mono text-[#4a1c1c] animate-orbit-fast">
-            Python / Java
-          </div>
 
         </div>
 

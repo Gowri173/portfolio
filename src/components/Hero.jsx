@@ -164,6 +164,24 @@ const Hero = () => {
             I design and develop AI-powered systems, intelligent automation platforms, cloud-native applications, and modern web experiences that solve real-world challenges.
           </p>
 
+          {/* Quick Metrics */}
+          <div className="hero-reveal flex items-center gap-6 mb-8 border-t border-orange-100/10 pt-6 max-w-xs select-none">
+            <div className="flex flex-col">
+              <span className="text-xl md:text-2xl font-black text-[#4a1c1c] font-sans">AWS</span>
+              <span className="text-[9px] font-bold text-[#6b2d2d]/80 uppercase tracking-widest mt-0.5">Certified</span>
+            </div>
+            <div className="h-8 w-[1px] bg-orange-100/30" />
+            <div className="flex flex-col">
+              <span className="text-xl md:text-2xl font-black text-[#4a1c1c] font-sans">2+</span>
+              <span className="text-[9px] font-bold text-[#6b2d2d]/80 uppercase tracking-widest mt-0.5">Internships</span>
+            </div>
+            <div className="h-8 w-[1px] bg-orange-100/30" />
+            <div className="flex flex-col">
+              <span className="text-xl md:text-2xl font-black text-[#4a1c1c] font-sans">8.26</span>
+              <span className="text-[9px] font-bold text-[#6b2d2d]/80 uppercase tracking-widest mt-0.5">CGPA</span>
+            </div>
+          </div>
+
           {/* Action Buttons */}
           <div className="hero-reveal flex flex-wrap items-center gap-4">
             <button
@@ -184,6 +202,17 @@ const Hero = () => {
               <Code className="w-4 h-4 text-[#6b2d2d] group-hover:text-accent-orange transition-colors" />
             </a>
           </div>
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div 
+        onClick={handleExploreProjects}
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1.5 opacity-65 hover:opacity-100 transition-opacity cursor-pointer select-none"
+      >
+        <span className="text-[9px] font-bold uppercase tracking-[0.25em] text-[#6b2d2d] font-mono">Scroll</span>
+        <div className="w-5 h-8 rounded-full border border-orange-200 flex justify-center p-1">
+          <div className="w-1.5 h-1.5 rounded-full bg-accent-fire animate-bounce" />
         </div>
       </div>
     </section>

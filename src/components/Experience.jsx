@@ -8,7 +8,11 @@ const Experience = () => {
       company: "Microsoft Elevate & AICTE",
       duration: "Jan 2026 – Feb 2026",
       location: "Remote",
-      desc: "Completed a 4-week internship focused on the Microsoft Azure Cloud Emerging Technologies program. Developed foundational knowledge of cloud computing, Azure services, and cloud-based deployment workflows. Worked on hands-on labs involving cloud infrastructure, data processing, and scalable application deployment.",
+      bullets: [
+        "4-week program on Microsoft Azure cloud Emerging Technologies.",
+        "Built foundational knowledge of Azure services and deployment workflows.",
+        "Hands-on labs: cloud infrastructure, data processing, scalable apps."
+      ],
       tags: ["Microsoft Azure", "Azure Services", "Cloud Deployment", "Emerging Tech", "Infrastructure"]
     },
     {
@@ -16,7 +20,11 @@ const Experience = () => {
       company: "AWS Academy (AICTE & EduSkills)",
       duration: "Oct 2025 – Dec 2025",
       location: "Virtual",
-      desc: "Designed foundational cloud-based data pipelines using AWS services for data ingestion, storage, and processing. Implemented scalable data workflows supporting real-world data engineering scenarios. Strengthened expertise in distributed data systems and cloud-based processing architectures.",
+      bullets: [
+        "Designed cloud-native data pipelines using AWS for ingestion, storage, and processing.",
+        "Implemented scalable workflows for real-world data engineering scenarios.",
+        "Deepened expertise in distributed systems and cloud-based architectures."
+      ],
       tags: ["AWS Academy", "Data Pipelines", "Cloud Ingestion", "Distributed Systems", "SQL"]
     }
   ];
@@ -29,10 +37,10 @@ const Experience = () => {
       {/* Header */}
       <div className="mb-16 text-center">
         <span className="text-xs font-bold uppercase tracking-[0.25em] text-accent-fire font-sans block mb-2">
-          System Milestones
+          Journey
         </span>
         <h2 className="text-3xl md:text-5xl font-black text-[#4a1c1c] tracking-tight font-sans">
-          Evolutionary <span className="text-gradient-fire">Timeline</span>
+          Work <span className="text-gradient-fire">Experience</span>
         </h2>
         <div className="h-[2px] w-20 bg-gradient-to-r from-accent-fire to-accent-orange mt-4 mx-auto" />
       </div>
@@ -40,7 +48,7 @@ const Experience = () => {
       {/* Timeline Layout */}
       <div className="relative border-l-2 border-orange-100 ml-4 md:ml-12 space-y-12">
         {experiences.map((exp, idx) => (
-          <div key={idx} className="relative pl-8 md:pl-12 group">
+          <div key={idx} className="relative pl-8 md:pl-12 group animate-fadeIn">
 
             {/* Timeline Dot Indicator */}
             <div className="absolute left-[-9px] top-1.5 w-4 h-4 rounded-full bg-white border-2 border-accent-fire group-hover:bg-accent-orange transition-colors z-10 flex items-center justify-center">
@@ -77,10 +85,15 @@ const Experience = () => {
                 </div>
               </div>
 
-              {/* Milestones description */}
-              <p className="text-xs md:text-sm text-[#6b2d2d] font-light leading-relaxed font-sans mb-6">
-                {exp.desc}
-              </p>
+              {/* Milestones description (bullets) */}
+              <ul className="space-y-2 mb-6 font-sans text-xs md:text-sm text-[#6b2d2d] font-light">
+                {exp.bullets.map((bullet, bulletIdx) => (
+                  <li key={bulletIdx} className="flex items-start gap-2 leading-relaxed">
+                    <span className="text-accent-fire font-mono font-bold select-none">›</span>
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
 
               {/* Technology badges */}
               <div className="flex flex-wrap gap-2">
@@ -97,6 +110,13 @@ const Experience = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Philosophy Quote */}
+      <div className="mt-20 max-w-4xl mx-auto text-center border-t border-orange-100/50 pt-10 select-none">
+        <p className="text-xs md:text-sm text-[#6b2d2d] font-light font-sans max-w-xl mx-auto italic">
+          "Every internship, every project, every certification — not just a line on a resume, but a building block for creating systems that matter."
+        </p>
       </div>
     </section>
   );

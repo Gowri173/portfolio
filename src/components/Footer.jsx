@@ -9,24 +9,24 @@ const Footer = () => {
         {/* Branding */}
         <div className="text-center md:text-left">
           <span className="font-sans font-black text-sm tracking-widest text-[#4a1c1c]">
-            GOWRI<span className="text-accent-fire">RAM</span>
+            GR
           </span>
           <p className="text-[10px] text-[#6b2d2d]/70 font-mono mt-1 uppercase tracking-wider">
-            © 2026 // COGNITIVE INFRASTRUCTURE
+            © 2026 Masabattuni Gowriram
           </p>
         </div>
 
         {/* Statement */}
         <div className="text-center">
           <p className="text-xs text-[#6b2d2d]/90 font-light font-sans tracking-wide">
-            Designed, Engineered, and Powered by <span className="text-[#4a1c1c] font-semibold">Gowri Ram</span>.
+            Designed & Engineered by Gowri Ram.
           </p>
         </div>
 
         {/* Social Links */}
         <div className="flex items-center gap-4">
           <a
-            href="https://github.com/Gowri173"
+            href="https://github.com/gowriram"
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 rounded-lg bg-orange-50 border border-orange-100 text-[#6b2d2d] hover:text-accent-fire hover:border-accent-fire/40 transition-colors"
@@ -46,7 +46,7 @@ const Footer = () => {
             </svg>
           </a>
           <a
-            href="https://linkedin.com/in/gowri-ram"
+            href="https://linkedin.com/in/gowriram"
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 rounded-lg bg-orange-50 border border-orange-100 text-[#6b2d2d] hover:text-accent-fire hover:border-accent-fire/40 transition-colors"

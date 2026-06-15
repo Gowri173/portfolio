@@ -10,6 +10,7 @@ const Navbar = () => {
     { label: 'Home', id: 'home' },
     { label: 'About', id: 'about' },
     { label: 'Experience', id: 'experience' },
+    { label: 'Education', id: 'education' },
     { label: 'Projects', id: 'projects' },
     { label: 'AI Systems', id: 'aisystems' },
     { label: 'Skills', id: 'skills' },
@@ -71,7 +72,7 @@ const Navbar = () => {
           className="cursor-pointer select-none"
         >
           <span className="font-sans font-black text-xl tracking-wider text-white">
-            GOWRIRAM
+            Gowriram
           </span>
         </div>
 
