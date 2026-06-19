@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="py-12 border-t border-orange-100 bg-white/40 backdrop-blur-md px-6">
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-        
+
         {/* Branding */}
         <div className="text-center md:text-left">
           <span className="font-sans font-black text-sm tracking-widest text-[#4a1c1c]">
@@ -26,7 +26,7 @@ const Footer = () => {
         {/* Social Links */}
         <div className="flex items-center gap-4">
           <a
-            href="https://github.com/gowriram"
+            href="https://github.com/Gowri173"
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 rounded-lg bg-orange-50 border border-orange-100 text-[#6b2d2d] hover:text-accent-fire hover:border-accent-fire/40 transition-colors"
@@ -46,7 +46,7 @@ const Footer = () => {
             </svg>
           </a>
           <a
-            href="https://linkedin.com/in/gowriram"
+            href="https://www.linkedin.com/in/gowri-ram-050a68271/"
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 rounded-lg bg-orange-50 border border-orange-100 text-[#6b2d2d] hover:text-accent-fire hover:border-accent-fire/40 transition-colors"

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, Send, Terminal, CheckCircle, MessageSquare, Phone, MapPin, ExternalLink, Calendar, FileText, RefreshCw } from 'lucide-react';
+import axios from 'axios';
+import { Mail, Send, Terminal, CheckCircle, MessageSquare, Phone, MapPin, ExternalLink, Calendar, FileText, RefreshCw, AlertCircle } from 'lucide-react';
 
 const Contact = () => {
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
   const [projectType, setProjectType] = useState('General');
-  const [status, setStatus] = useState('idle'); // idle, sending, success
+  const [status, setStatus] = useState('idle'); // idle, sending, success, error
+  const [errorMessage, setErrorMessage] = useState('');
   const [hudLogs, setHudLogs] = useState([]);
 
   const projectCategories = [
@@ -20,7 +22,7 @@ const Contact = () => {
     const logs = [
       `[SYS] NODE_IP // SECURE_SOCKET_ACTIVE`,
       `[SYS] TARGET: GOWRI_RAM_SYSTEMS // STATUS: ONLINE`,
-      `[SYS] PORT: 8080 // INGESTION_ENDPOINT: active`,
+      `[SYS] PORT: 5000 // INGESTION_ENDPOINT: active`,
       `----------------------------------------`
     ];
 
@@ -50,11 +52,14 @@ const Contact = () => {
       logs.push(`[SYS] UPLOADING: Transmitting secure packet...`);
     } else if (status === 'success') {
       logs.push(`[SYS] SUCCESS: Packet ingested successfully!`);
-      logs.push(`[SYS] STATUS: 200 OK. Connection closed.`);
+      logs.push(`[SYS] STATUS: 201 Created. Connection closed.`);
+    } else if (status === 'error') {
+      logs.push(`[SYS] ERROR: Payload transmission failed.`);
+      logs.push(`[SYS] SERVER_RESP: ${errorMessage || 'Connection refused.'}`);
     }
 
     setHudLogs(logs);
-  }, [formState, projectType, status]);
+  }, [formState, projectType, status, errorMessage]);
 
   const handleChange = (e) => {
     setFormState({ ...formState, [e.target.name]: e.target.value });
@@ -68,23 +73,41 @@ const Contact = () => {
     setFormState({ name: '', email: '', message: '' });
     setProjectType('General');
     setStatus('idle');
+    setErrorMessage('');
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formState.name || !formState.email || !formState.message) return;
 
     setStatus('sending');
-    // Simulate transmission
-    setTimeout(() => {
+    setErrorMessage('');
+
+    try {
+      const apiBaseUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      const payload = {
+        name: formState.name,
+        email: formState.email,
+        projectType: projectType,
+        message: formState.message,
+      };
+
+      await axios.post(`${apiBaseUrl}/api/contact`, payload);
       setStatus('success');
       setTimeout(() => {
-        setFormState({ name: '', email: '', message: '' });
-        setProjectType('General');
-        setStatus('idle');
+        handleReset();
       }, 4000);
-    }, 2000);
+    } catch (err) {
+      console.error("Submission failed:", err);
+      const serverMsg = err.response?.data?.message || err.message || 'Unknown network error';
+      setErrorMessage(serverMsg);
+      setStatus('error');
+      setTimeout(() => {
+        setStatus('idle');
+      }, 5000);
+    }
   };
+
 
   return (
     <section id="contact" className="py-24 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto relative">
@@ -319,7 +342,13 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={status === 'sending'}
-                className="btn-primary-fire w-full py-4 text-xs font-bold uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2 select-none disabled:opacity-50 disabled:cursor-not-allowed hover:scale-[1.01] active:scale-98 shadow-md font-sans"
+                className={`w-full py-4 text-xs font-bold uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2 select-none disabled:opacity-50 disabled:cursor-not-allowed hover:scale-[1.01] active:scale-98 shadow-md font-sans ${
+                  status === 'error'
+                    ? 'bg-red-600 text-white border-transparent'
+                    : status === 'success'
+                    ? 'bg-emerald-600 text-white border-transparent'
+                    : 'btn-primary-fire'
+                }`}
               >
                 {status === 'sending' ? (
                   <>
@@ -328,8 +357,13 @@ const Contact = () => {
                   </>
                 ) : status === 'success' ? (
                   <>
-                    <CheckCircle className="w-4 h-4 text-emerald-400" />
+                    <CheckCircle className="w-4 h-4 text-white" />
                     Payload Ingested
+                  </>
+                ) : status === 'error' ? (
+                  <>
+                    <AlertCircle className="w-4 h-4 text-white animate-bounce" />
+                    Transmission Failed
                   </>
                 ) : (
                   <>

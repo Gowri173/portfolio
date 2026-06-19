@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ArrowUpRight, Code, Sparkles } from 'lucide-react';
 import heroVideo from '../assets/intro-video.mp4';
+import HeroLedgerWidget from './HeroLedgerWidget';
 
 const Hero = () => {
   const contentRef = useRef(null);
@@ -56,48 +57,29 @@ const Hero = () => {
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
-    video.autoPlay = true;
 
-
-    // Explicitly disable looping
     video.loop = false;
+    video.muted = true;
 
-    // Set muted to false to try playing audio
-    video.muted = false;
+    // Start muted autoplay
+    video.play().catch(() => { });
 
-    const playAudio = () => {
-      if (video) {
+    const enableAudio = async () => {
+      try {
         video.muted = false;
-        video.autoPlay = true;
-        video.play().catch((err) => {
-          console.log("Autoplay unmuted blocked by browser, waiting for user interaction:", err);
-        });
+        video.volume = 1;
+        await video.play();
+      } catch (err) {
+        console.log("Could not unmute:", err);
       }
+
+      window.removeEventListener("mousemove", enableAudio);
     };
 
-    // Try playing immediately
-    playAudio();
-
-    // Interaction triggers to start/unmute audio as soon as user interacts
-    const enableAudio = () => {
-      if (video) {
-        video.muted = false;
-        video.play().catch(() => { });
-      }
-      // Remove listeners once activated
-      window.removeEventListener('click', enableAudio);
-      window.removeEventListener('touchstart', enableAudio);
-      window.removeEventListener('scroll', enableAudio);
-    };
-
-    window.addEventListener('click', enableAudio);
-    window.addEventListener('touchstart', enableAudio);
-    window.addEventListener('scroll', enableAudio);
+    window.addEventListener("mousemove", enableAudio, { once: true });
 
     return () => {
-      window.removeEventListener('click', enableAudio);
-      window.removeEventListener('touchstart', enableAudio);
-      window.removeEventListener('scroll', enableAudio);
+      window.removeEventListener("mousemove", enableAudio);
     };
   }, []);
 
@@ -117,8 +99,8 @@ const Hero = () => {
       <video
         ref={videoRef}
         autoPlay
+        muted
         playsInline
-        loop={false}
         preload="auto"
         className="absolute inset-0 w-full h-full object-cover z-0"
       >
@@ -205,8 +187,13 @@ const Hero = () => {
         </div>
       </div>
 
+      {/* Floating Ledger Book Widget on upper-right */}
+      <div className="hidden lg:block absolute top-[22%] right-[8%] z-30">
+        <HeroLedgerWidget />
+      </div>
+
       {/* Scroll indicator */}
-      <div 
+      <div
         onClick={handleExploreProjects}
         className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1.5 opacity-65 hover:opacity-100 transition-opacity cursor-pointer select-none"
       >

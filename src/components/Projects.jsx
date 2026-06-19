@@ -20,17 +20,17 @@ const Projects = () => {
         { label: "Monitoring", value: "Real-time" }
       ],
       tags: ["Python", "Flask", "scikit-learn", "JavaScript", "SQLite", "NumPy"],
-      github: "https://github.com/gowriram",
+      github: "https://github.com/Gowri173/neuropass",
       demo: "#",
       // Inline architecture schematic styled for Red/Orange Fire Theme
       diagram: (
         <svg viewBox="0 0 400 220" className="w-full h-full text-[#6b2d2d] font-mono text-[9px] select-none">
           {/* Grids and Nodes */}
           <rect x="10" y="10" width="380" height="200" rx="15" fill="rgba(255, 255, 255, 0.9)" stroke="rgba(255, 69, 0, 0.2)" strokeDasharray="3 3" />
-          
+
           {/* Signal Stream */}
           <path d="M 40 110 C 100 40, 150 180, 200 110 S 300 40, 360 110" fill="none" stroke="url(#fireGrad)" strokeWidth="2.5" className="animate-pulse" />
-          
+
           {/* Node Points */}
           <circle cx="40" cy="110" r="6" fill="#ffffff" stroke="#ff4500" strokeWidth="2" />
           <text x="25" y="130" fill="#4a1c1c">Telemetry</text>
@@ -75,17 +75,17 @@ const Projects = () => {
         { label: "Grounded", value: "Source" }
       ],
       tags: ["Python", "LangChain", "LLMs", "Vector DB", "RAG", "Embeddings"],
-      github: "https://github.com/gowriram",
+      github: "https://github.com/Gowri173/medrag",
       demo: "#",
       // RAG Routing schematic styled for Red/Orange Fire Theme
       diagram: (
         <svg viewBox="0 0 400 220" className="w-full h-full text-[#6b2d2d] font-mono text-[9px] select-none">
           <rect x="10" y="10" width="380" height="200" rx="15" fill="rgba(255, 255, 255, 0.9)" stroke="rgba(255, 140, 0, 0.2)" strokeDasharray="3 3" />
-          
+
           {/* Database Stack */}
           <rect x="40" y="70" width="60" height="80" rx="5" fill="rgba(255, 69, 0, 0.03)" stroke="rgba(255, 69, 0, 0.3)" />
           <text x="50" y="110" fill="#4a1c1c" className="font-bold">VectorDB</text>
-          
+
           {/* Signal arrows */}
           <line x1="100" y1="110" x2="160" y2="110" stroke="#ff4500" strokeWidth="1.5" strokeDasharray="4 2" />
           <circle cx="160" cy="110" r="16" fill="rgba(255, 107, 53, 0.05)" stroke="#ff6b35" />
@@ -125,7 +125,7 @@ const Projects = () => {
       {/* Projects Stack */}
       <div className="space-y-28">
         {projects.map((proj, idx) => (
-          <div 
+          <div
             key={idx}
             className="glass-panel border-orange-100 p-8 md:p-10 rounded-[36px] shadow-xl hover:border-accent-fire/30 transition-all duration-500 relative flex flex-col gap-8 animate-fadeIn"
           >
@@ -172,7 +172,7 @@ const Projects = () => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
               {/* Problem/Solution specs - Left */}
               <div className="lg:col-span-7 space-y-6">
-                
+
                 {/* Problem Section */}
                 <div className="space-y-2">
                   <span className="text-[9px] font-extrabold uppercase tracking-widest text-[#6b2d2d]/60 font-mono block">
@@ -211,8 +211,8 @@ const Projects = () => {
                 {/* Technology Badges */}
                 <div className="flex flex-wrap gap-1.5 pt-2">
                   {proj.tags.map((tag, tIdx) => (
-                    <span 
-                      key={tIdx} 
+                    <span
+                      key={tIdx}
                       className="px-2.5 py-1 rounded-lg bg-orange-50/40 border border-orange-100/60 font-mono text-[9px] text-[#6b2d2d]/90"
                     >
                       {tag}
@@ -224,7 +224,7 @@ const Projects = () => {
 
               {/* Architecture Diagram and Metrics - Right */}
               <div className="lg:col-span-5 space-y-6">
-                
+
                 {/* SVG Schematic Box */}
                 <div className="p-4 rounded-2xl bg-white border border-orange-100 hover:border-accent-fire/20 transition-colors shadow-sm relative">
                   <div className="absolute top-3 right-3 text-[8px] font-mono text-[#6b2d2d]/50">SCHEMATIC_NODE // V1.0</div>
@@ -260,9 +260,9 @@ const Projects = () => {
 
       {/* Footer link to GitHub */}
       <div className="mt-20 text-center select-none">
-        <a 
-          href="https://github.com/gowriram" 
-          target="_blank" 
+        <a
+          href="https://github.com/Gowri173"
+          target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-orange-50 hover:bg-orange-100 border border-orange-100 hover:border-accent-orange/30 text-xs font-bold text-[#4a1c1c] uppercase tracking-wider transition-all"
         >

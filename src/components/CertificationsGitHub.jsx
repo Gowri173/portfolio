@@ -8,7 +8,7 @@ const CertificationsGitHub = () => {
       issuer: "Amazon Web Services",
       desc: "Validates foundational cloud knowledge including AWS services, architecture, security, and pricing.",
       id: "AWS-CCP-VERIFIED",
-      credly: "https://www.credly.com",
+      credly: "https://www.credly.com/badges/ea9f9fe4-b524-4189-ba42-668ee6c6da0c/public_url",
       featured: true
     },
     {
@@ -79,7 +79,7 @@ const CertificationsGitHub = () => {
       <div className="absolute top-1/2 left-1/3 w-[450px] h-[450px] bg-accent-fire/5 rounded-full blur-[140px] pointer-events-none -z-10" />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-        
+
         {/* Left: Certifications Column */}
         <div className="lg:col-span-6 flex flex-col justify-between">
           <div className="mb-6">
@@ -95,22 +95,20 @@ const CertificationsGitHub = () => {
           {/* Expandable Certifications List Container */}
           <div className="space-y-4 max-h-[500px] overflow-y-auto pr-3 scrollbar-thin">
             {certifications.map((cert, idx) => (
-              <div 
+              <div
                 key={idx}
-                className={`group glass-panel p-4 rounded-2xl border transition-all duration-300 flex items-start gap-4 ${
-                  cert.featured 
-                    ? 'border-accent-fire/40 bg-orange-50/10 shadow-[0_0_15px_rgba(255,69,0,0.04)]' 
-                    : 'border-orange-100 hover:border-accent-fire/30'
-                }`}
+                className={`group glass-panel p-4 rounded-2xl border transition-all duration-300 flex items-start gap-4 ${cert.featured
+                  ? 'border-accent-fire/40 bg-orange-50/10 shadow-[0_0_15px_rgba(255,69,0,0.04)]'
+                  : 'border-orange-100 hover:border-accent-fire/30'
+                  }`}
               >
-                <div className={`p-2.5 rounded-xl border transition-colors shrink-0 ${
-                  cert.featured 
-                    ? 'bg-orange-50 border-accent-fire/40 text-accent-fire' 
-                    : 'bg-orange-50/40 border-orange-100 text-[#6b2d2d]/60 group-hover:text-accent-fire'
-                }`}>
+                <div className={`p-2.5 rounded-xl border transition-colors shrink-0 ${cert.featured
+                  ? 'bg-orange-50 border-accent-fire/40 text-accent-fire'
+                  : 'bg-orange-50/40 border-orange-100 text-[#6b2d2d]/60 group-hover:text-accent-fire'
+                  }`}>
                   <Award className="w-4.5 h-4.5" />
                 </div>
-                
+
                 <div className="space-y-1 w-full">
                   <div className="flex items-start justify-between gap-2">
                     <h4 className="text-xs md:text-sm font-bold text-[#4a1c1c] font-sans group-hover:text-accent-orange transition-colors">
@@ -118,7 +116,7 @@ const CertificationsGitHub = () => {
                       {cert.title}
                     </h4>
                     {cert.credly && (
-                      <a 
+                      <a
                         href={cert.credly}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -147,7 +145,7 @@ const CertificationsGitHub = () => {
 
         {/* Right: Real GitHub telemetry dashboard */}
         <div className="lg:col-span-6 glass-panel border-orange-100 p-6 md:p-8 rounded-3xl shadow-xl relative flex flex-col justify-between gap-6">
-          
+
           {/* Header */}
           <div className="flex items-center justify-between border-b border-orange-100 pb-4 mb-2 select-none">
             <span className="text-xs font-bold text-[#4a1c1c] font-mono uppercase tracking-widest flex items-center gap-2">
@@ -163,7 +161,7 @@ const CertificationsGitHub = () => {
               <h3 className="text-xs font-bold text-[#4a1c1c] font-sans uppercase tracking-wider border-b border-orange-100/50 pb-1">
                 gowriram's GitHub Stats
               </h3>
-              
+
               <div className="space-y-1.5 font-mono text-[10px] text-[#6b2d2d]">
                 <div className="flex justify-between">
                   <span>Total Stars Earned:</span>
@@ -193,7 +191,7 @@ const CertificationsGitHub = () => {
               <div className="relative w-20 h-20 rounded-full border border-dashed border-[#6b2d2d]/25 flex items-center justify-center">
                 {/* Simulated outer border arc */}
                 <div className="absolute inset-1.5 rounded-full border-2 border-accent-fire border-t-transparent border-r-transparent animate-spin [animation-duration:20s]" />
-                
+
                 <div className="w-14 h-14 rounded-full bg-white border border-orange-100 flex items-center justify-center shadow-inner">
                   <span className="text-2xl font-black text-accent-fire font-mono">C</span>
                 </div>
@@ -207,7 +205,7 @@ const CertificationsGitHub = () => {
             <h4 className="text-xs font-bold text-[#4a1c1c] font-sans uppercase tracking-wider border-b border-orange-100/50 pb-1">
               Most Used Languages
             </h4>
-            
+
             {/* Segmented Progress Bar */}
             <div className="w-full h-3 rounded-full overflow-hidden flex bg-orange-50 border border-orange-100/40">
               <div style={{ width: '75.06%' }} className="bg-yellow-400 h-full hover:opacity-85 transition-opacity" title="JavaScript: 75.06%" />
@@ -274,7 +272,7 @@ const CertificationsGitHub = () => {
           {/* Action button at bottom */}
           <div>
             <a
-              href="https://github.com/gowriram"
+              href="https://github.com/Gowri173"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary-fire group w-full py-3.5 text-xs font-bold uppercase tracking-wider rounded-2xl flex items-center justify-center gap-2 hover:scale-[1.01] transition-transform shadow-md font-sans"
