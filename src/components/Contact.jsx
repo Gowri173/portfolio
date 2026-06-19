@@ -84,7 +84,7 @@ const Contact = () => {
     setErrorMessage('');
 
     try {
-      const apiBaseUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      const apiBaseUrl = import.meta.env.VITE_API_URL || 'https://portfolio-qy70.onrender.com';
       const payload = {
         name: formState.name,
         email: formState.email,
