@@ -21,7 +21,7 @@ const HeroLedgerWidget = () => {
   const [status, setStatus] = useState('idle'); // idle, sending, success, error
   const [errorMessage, setErrorMessage] = useState('');
 
-  const apiBaseUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+  const apiBaseUrl = import.meta.env.VITE_API_URL || 'https://portfolio-qy70.onrender.com';
   const ENTRIES_PER_PAGE = 3;
 
   const fetchEntries = async () => {
