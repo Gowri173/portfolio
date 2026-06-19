@@ -26,8 +26,7 @@ app.use(helmet());
 
 // CORS Configuration
 const allowedOrigins = [
-  'http://localhost:5173', // Vite local development
-  'http://localhost:3000',
+  'https://portfolio-coi7hm6pw-gowri-rams-projects.vercel.app/',
   process.env.FRONTEND_URL, // Deployed frontend URL
 ].filter(Boolean);
 
