@@ -12,11 +12,11 @@ name,
 email,
 company,
 projectType,
-message
+message,
 } = req.body;
 
 ```
-// Save Inquiry to MongoDB
+// Save inquiry to MongoDB
 const newContact = await Contact.create({
   name,
   email,
@@ -62,7 +62,7 @@ if (transporter) {
       `[MAIL] Failed to send notification for contact ${newContact._id}`
     );
 
-    // Continue execution because inquiry is already saved
+    // Continue because data is already saved
   }
 } else {
   console.warn(
