@@ -3,7 +3,8 @@ import axios from "axios";
 const API_BASE_URL =
   import.meta.env.VITE_API_URL ||
   "https://portfolio-qy70.onrender.com";
-
+console.log("=== AXIOS LOADED ===");
+console.log("API URL:", import.meta.env.VITE_API_URL);
 const api = axios.create({
   baseURL: API_BASE_URL,
   timeout: 100000,
