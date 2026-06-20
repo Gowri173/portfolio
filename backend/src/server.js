@@ -20,6 +20,7 @@ import errorHandler from './middleware/errorHandler.js';
 connectDB();
 
 const app = express();
+app.set('trust proxy', 1);
 
 // Security Middlewares
 app.use(helmet());
