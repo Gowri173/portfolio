@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import axios from 'axios';
+import api from '@/services/axios';
 import { Star, X, ChevronLeft, ChevronRight, Send, CheckCircle, AlertCircle, RefreshCw } from 'lucide-react';
 
 const HeroLedgerWidget = () => {
@@ -21,12 +21,11 @@ const HeroLedgerWidget = () => {
   const [status, setStatus] = useState('idle'); // idle, sending, success, error
   const [errorMessage, setErrorMessage] = useState('');
 
-  const apiBaseUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
   const ENTRIES_PER_PAGE = 3;
 
   const fetchEntries = async () => {
     try {
-      const res = await axios.get(`${apiBaseUrl}/api/ledger?limit=100`);
+      const res = await api.get('/api/ledger?limit=100');
       if (res.data?.status === 'success') {
         setEntries(res.data.data);
         setTotalEntries(res.data.total || res.data.data.length);
@@ -56,7 +55,7 @@ const HeroLedgerWidget = () => {
     setErrorMessage('');
 
     try {
-      const res = await axios.post(`${apiBaseUrl}/api/ledger`, formState);
+      const res = await api.post('/api/ledger', formState);
       if (res.data?.status === 'success') {
         setStatus('success');
 

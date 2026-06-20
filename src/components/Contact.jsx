@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '@/services/axios';
 import { Mail, Send, Terminal, CheckCircle, MessageSquare, Phone, MapPin, ExternalLink, Calendar, FileText, RefreshCw, AlertCircle } from 'lucide-react';
 
 const Contact = () => {
@@ -84,7 +84,6 @@ const Contact = () => {
     setErrorMessage('');
 
     try {
-      const apiBaseUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
       const payload = {
         name: formState.name,
         email: formState.email,
@@ -92,7 +91,7 @@ const Contact = () => {
         message: formState.message,
       };
 
-      await axios.post(`${apiBaseUrl}/api/contact`, payload);
+      await api.post('/api/contact', payload);
       setStatus('success');
       setTimeout(() => {
         handleReset();
