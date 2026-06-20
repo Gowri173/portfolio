@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ArrowUpRight, Code, Sparkles } from 'lucide-react';
-import heroVideo from '../assets/intro-video.mp4';
 import HeroLedgerWidget from './HeroLedgerWidget';
+
+const heroVideo = 'https://res.cloudinary.com/duhl1esjv/video/upload/q_auto,f_auto/video_20260620_130034_u1nbx1.mp4';
 
 const Hero = () => {
   const contentRef = useRef(null);
