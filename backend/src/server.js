@@ -26,7 +26,7 @@ app.use(helmet());
 
 // CORS Configuration
 const allowedOrigins = [
-  'https://portfolio-omega-gray-93.vercel.app/',
+  'https://portfolio-omega-gray-93.vercel.app',
   process.env.FRONTEND_URL, // Deployed frontend URL
 ].filter(Boolean);
 
